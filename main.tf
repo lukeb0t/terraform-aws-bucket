@@ -3,8 +3,17 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "bucket1" {
-  bucket = var.bucketname
+  bucket = "${var.prefix}_${random_id.server.hex}
   acl    = "private"
 
   tags = var.aws_tags
 }
+
+resource "random_id" "bucket_id" {
+  byte_length = 8
+}
+
+resource "aws_instance" "server" {
+  tags = {
+    Name = "web-server ${random_id.server.hex}"
+  }
