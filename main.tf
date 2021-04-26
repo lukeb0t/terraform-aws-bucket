@@ -2,7 +2,7 @@ provider "aws" {
   region = var.region
 }
 
-resource "aws_s3_bucket" "bucket1" {
+resource "aws_s3_bucket" "b" {
   bucket = "${var.prefix}_${random_id.bucket_id.hex}"
   acl    = "private"
   tags = var.aws_tags
