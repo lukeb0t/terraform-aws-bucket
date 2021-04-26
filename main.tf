@@ -12,8 +12,3 @@ resource "aws_s3_bucket" "bucket1" {
 resource "random_id" "bucket_id" {
   byte_length = 8
 }
-
-resource "aws_instance" "server" {
-  tags = {
-    Name = "web-server ${random_id.server.hex}"
-  }
