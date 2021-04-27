@@ -6,4 +6,10 @@ terraform {
       version = ">= 3.0.0"
     }
   }
+  backend "remote" {
+    organization = "argocorp"
+    workspaces {
+      name = "terraform-aws-bucket"
+    }
+}
 }
